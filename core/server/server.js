@@ -397,7 +397,7 @@ class Server {
         )
 
         const cacheDuration = (30 * 24 * 3600) | 0 // 30 days.
-        ask.res.setHeader('Cache-Control', `max-age=${cacheDuration}`)
+        ask.res.setHeader('Cache-Control', `max-age=3`)
 
         ask.res.end()
       })
@@ -523,7 +523,7 @@ class Server {
         socket.write('HTTP/1.1 408 Request Timeout\r\n')
         socket.write('Content-Type: text/html; charset=UTF-8\r\n')
         socket.write('Content-Encoding: UTF-8\r\n')
-        socket.write(`Cache-Control: max-age=${maxAge}, s-maxage=${maxAge}\r\n`)
+        socket.write(`Cache-Control: max-age=3, s-maxage=3\r\n`)
         socket.write('Connection: close\r\n\r\n')
         socket.write('Request Timeout')
         socket.end()
