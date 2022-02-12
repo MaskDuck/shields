@@ -65,7 +65,7 @@ function setHeadersForCacheLength(res, cacheLengthSeconds) {
     cacheControl = 'no-cache, no-store, must-revalidate'
     expires = nowGMTString
   } else {
-    cacheControl = `max-age=$3, s-maxage=3`
+    cacheControl = `max-age=1, s-maxage=1`
     expires = new Date(now.getTime() + cacheLengthSeconds * 1000).toGMTString()
   }
 
