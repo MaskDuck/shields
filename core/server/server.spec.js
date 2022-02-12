@@ -56,12 +56,12 @@ describe('The server', function () {
 
     it('should serve front-end with default maxAge', async function () {
       const { headers } = await got(`${baseUrl}/`)
-      expect(headers['cache-control']).to.equal('max-age=300, s-maxage=300')
+      expect(headers['cache-control']).to.equal('max-age=3, s-maxage=3')
     })
 
     it('should serve badges with custom maxAge', async function () {
       const { headers } = await got(`${baseUrl}npm/l/express`)
-      expect(headers['cache-control']).to.equal('max-age=3600, s-maxage=3600')
+      expect(headers['cache-control']).to.equal('max-age=3, s-maxage=3')
     })
 
     it('should return cors header for the request', async function () {
